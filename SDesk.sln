@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDesc.Model", "Model\SDesc.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDesc.DataAccess", "SDesc.DataAccess\SDesc.DataAccess.csproj", "{8C333AF2-BED7-44A8-BF7F-B5C8BC3BE6E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDesk.Model", "SDesk.Model\SDesk.Model.csproj", "{8539B045-2E42-48A5-9EAE-1E502345AD48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8C333AF2-BED7-44A8-BF7F-B5C8BC3BE6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C333AF2-BED7-44A8-BF7F-B5C8BC3BE6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C333AF2-BED7-44A8-BF7F-B5C8BC3BE6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8539B045-2E42-48A5-9EAE-1E502345AD48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8539B045-2E42-48A5-9EAE-1E502345AD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8539B045-2E42-48A5-9EAE-1E502345AD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8539B045-2E42-48A5-9EAE-1E502345AD48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
