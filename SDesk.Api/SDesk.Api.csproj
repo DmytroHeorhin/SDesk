@@ -147,13 +147,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\SDesc.Model.csproj">
-      <Project>{111e4442-eb73-48a4-95a1-5e700de79eeb}</Project>
-      <Name>SDesc.Model</Name>
+    <ProjectReference Include="..\SDesk.DataAccess\SDesk.DataAccess.csproj">
+      <Project>{7b8a9483-d545-4bdb-ba01-d242d03509cf}</Project>
+      <Name>SDesk.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SDesc.DataAccess\SDesc.DataAccess.csproj">
-      <Project>{8c333af2-bed7-44a8-bf7f-b5c8bc3be6e9}</Project>
-      <Name>SDesc.DataAccess</Name>
+    <ProjectReference Include="..\SDesk.Model\SDesk.Model.csproj">
+      <Project>{8539b045-2e42-48a5-9eae-1e502345ad48}</Project>
+      <Name>SDesk.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
