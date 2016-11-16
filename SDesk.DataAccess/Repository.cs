@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using SDesc.DataAccess.EF;
+using SDesc.DataAccess;
+using SDesk.DataAccess.EF;
 
-namespace SDesc.DataAccess
+namespace SDesk.DataAccess
 {
     public class Repository<T> : IRepository<T> where T : class
     {

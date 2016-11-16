@@ -1,4 +1,4 @@
-﻿namespace Epam.Sdesk.Model
+﻿namespace SDesk.Model
 {
     public class User
     {

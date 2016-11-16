@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using SDesc.DataAccess;
-using Epam.Sdesk.Model;
+using SDesk.DataAccess;
+using SDesk.Model;
 
 namespace SDesk.Api.Controllers
 {
@@ -18,6 +17,7 @@ namespace SDesk.Api.Controllers
             _mailRepository = new Repository<Mail>();
         }
 
+        //GET /api/mails
         public IHttpActionResult GetAllMails()
         {
             var mails = _mailRepository.GetAll();
@@ -26,7 +26,8 @@ namespace SDesk.Api.Controllers
             return Ok(mails);
         }
 
-        public IHttpActionResult GatMail(int id)
+        //GET /api/mails/{id}
+        public IHttpActionResult GetMail(int id)
         {
             var mail = _mailRepository.Get(id);
             if (mail == null)
@@ -34,26 +35,33 @@ namespace SDesk.Api.Controllers
             return Ok(mail);
         }
 
+        //PUT /api/mails/{id}
         public IHttpActionResult PutMail(int id, Mail model)
         {
+            if (model == null)
+                return BadRequest();
             model.Id = id;
             _mailRepository.Update(model);
             _mailRepository.SaveChanges();
             return Ok(model);
         }
 
+        //POST /api/mails
         public IHttpActionResult PostMail(Mail model)
         {
+            if (model == null)
+                return BadRequest();
             var result = _mailRepository.Add(model);
             _mailRepository.SaveChanges();
-            return Ok(result);
+            return Created("/api/mails/" + result.Id, result);
         }
 
+        //DELETE /api/mails/{id}
         public IHttpActionResult DeleteMail(int id)
         {
             _mailRepository.Delete(id);
             _mailRepository.SaveChanges();
-            return Ok(id.ToString());
+            return StatusCode(HttpStatusCode.NoContent);
         }
     }
 }

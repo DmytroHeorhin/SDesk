@@ -1,7 +1,7 @@
-﻿using Epam.Sdesk.Model;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using SDesk.Model;
 
-namespace SDesc.DataAccess.EF
+namespace SDesk.DataAccess.EF
 {
     public class SDeskContext : DbContext
     {
@@ -12,5 +12,6 @@ namespace SDesc.DataAccess.EF
 
         public DbSet<Mail> Mails { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<JiraItem> JiraItems { get; set; }
     }
 }

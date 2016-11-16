@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using Epam.Sdesk.Model;
+using SDesk.Model;
 
-namespace SDesc.DataAccess.EF
+namespace SDesk.DataAccess.EF
 {
     public class DbInitializer : DropCreateDatabaseAlways<SDeskContext>
     {
@@ -18,7 +18,7 @@ namespace SDesc.DataAccess.EF
                     To = "Mary Moe",
                     Cc = "July Duly",
                     Body = "Lorem Ipsum Dolor Sit Amet",
-                    AttachmentId = 1,
+                    StatusId = 1,
                     Priority = Priority.Medium,
                     Received = DateTime.Now,
                     Saved = DateTime.Now
@@ -30,7 +30,7 @@ namespace SDesc.DataAccess.EF
                     To = "1Mary Moe",
                     Cc = "1July Duly",
                     Body = "1Lorem Ipsum Dolor Sit Amet",
-                    AttachmentId = 2,
+                    StatusId = 2,
                     Priority = Priority.High,
                     Received = DateTime.Now,
                     Saved = DateTime.Now
@@ -42,7 +42,7 @@ namespace SDesc.DataAccess.EF
                     To = "2Mary Moe",
                     Cc = "2July Duly",
                     Body = "2Lorem Ipsum Dolor Sit Amet",
-                    AttachmentId = 3,
+                    StatusId = 3,
                     Priority = Priority.Low,
                     Received = DateTime.Now,
                     Saved = DateTime.Now
@@ -71,6 +71,8 @@ namespace SDesc.DataAccess.EF
             };
 
             context.Attachments.AddRange(attachments);
+
+            context.JiraItems.Add(new JiraItem {JiraSourceId = 1, JiraNumber = 42, RequestIdType = 1});
 
             context.SaveChanges();
         }
