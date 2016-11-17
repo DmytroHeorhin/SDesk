@@ -1,13 +1,13 @@
 ﻿using System.Linq;
+using System.Net;
 using System.Web.Http;
 using SDesc.DataAccess;
 using SDesk.DataAccess;
 using SDesk.Model;
-using System.Net;
 
-namespace SDesk.Api.Controllers
+namespace SDesk.Api.Controllers.V1
 {
-    [RoutePrefix("api/mails/{id:int}")]
+    [RoutePrefix("api/mails/{id:int:min(1)}")]
     public class AttachmentsController : ApiController
     {
         private readonly IRepository<Attachment> _attachmentRepository;
@@ -34,7 +34,7 @@ namespace SDesk.Api.Controllers
 
         //GET api/mails/{id}/attachments/{attId}
         [HttpGet]
-        [Route("attachments/{attId:int}", Name = "AttachmentOfMail")]
+        [Route("attachments/{attId:int:min(1)}", Name = "AttachmentOfMail")]
         public IHttpActionResult AttachmentOfMail(int id, int attId)
         {
             var attachment = _attachmentRepository.SearchFor(a => a.MailId == id).FirstOrDefault(a => a.Id == attId);
@@ -43,7 +43,7 @@ namespace SDesk.Api.Controllers
 
         //PUT api/mails/{id}/attachments/{attId}
         [HttpPut]
-        [Route("attachments/{attId:int}", Name = "UpdateAttachment")]
+        [Route("attachments/{attId:int:min(1)}", Name = "UpdateAttachment")]
         public IHttpActionResult UpdateAttachment(int id, int attId, Attachment model)
         {
             if (model == null)
@@ -67,7 +67,7 @@ namespace SDesk.Api.Controllers
 
         //DELETE api/mails/{id}/attachments/{attId}
         [HttpDelete]
-        [Route("attachments/{attId:int}", Name = "DeleteAttachment")]
+        [Route("attachments/{attId:int:min(1)}", Name = "DeleteAttachment")]
         public IHttpActionResult DeleteAttachment(int id)
         {
             _attachmentRepository.Delete(id);

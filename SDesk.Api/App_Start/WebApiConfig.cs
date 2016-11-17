@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using System.Web.Http.Routing;
+using SDesk.Api.RoutingConstraints;
 
 namespace SDesk.Api
 {
@@ -9,13 +8,26 @@ namespace SDesk.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            config.MapHttpAttributeRoutes();
+            var constraintResolver = new DefaultInlineConstraintResolver();
+            constraintResolver.ConstraintMap.Add("jiraid", typeof(JiraIdConstraint));
+            config.MapHttpAttributeRoutes(constraintResolver);
+
+            config.Routes.MapHttpRoute(
+                name: "JiraIdConstraintBasedApi",
+                routeTemplate: "api/jiraitems/{id}",
+                defaults: new { controller = "jiraitems", action = "JiraItemString" },                                                 
+                constraints: new { id = new JiraIdConstraint() });
+
+            config.Routes.MapHttpRoute(
+                name: "DigitalIdConstraintBasedApi",
+                routeTemplate: "api/jiraitems/{id}",
+                defaults: new { controller = "jiraitems", action = "JiraItemInt" },
+                constraints: new { id = new DigitalIdConstraint() });
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                defaults: new { id = RouteParameter.Optional});                                     
         }
     }
 }

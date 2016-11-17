@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
 using SDesk.Api.Controllers;
+using SDesk.Api.Controllers.V1;
 
 namespace SDesc.Api.SelfHost
 {
