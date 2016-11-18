@@ -12,6 +12,8 @@ namespace SDesk.Api
             constraintResolver.ConstraintMap.Add("jiraid", typeof(JiraIdConstraint));
             config.MapHttpAttributeRoutes(constraintResolver);
 
+            log4net.Config.XmlConfigurator.Configure();
+
             config.Routes.MapHttpRoute(
                 name: "JiraIdConstraintBasedApi",
                 routeTemplate: "api/jiraitems/{id}",

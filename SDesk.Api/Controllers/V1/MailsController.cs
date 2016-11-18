@@ -3,13 +3,14 @@ using System.Web.Http;
 using SDesc.DataAccess;
 using SDesk.DataAccess;
 using SDesk.Model;
-using SDesk.Api.RouteAttributes;
+using log4net;
 
 namespace SDesk.Api.Controllers.V1
 {  
     public class MailsController : ApiController
     {
         private readonly IRepository<Mail> _mailRepository;
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public MailsController()
         {
@@ -19,6 +20,7 @@ namespace SDesk.Api.Controllers.V1
         //GET /api/mails
         public IHttpActionResult GetAllMails()
         {
+            Log.Debug("GET Request traced");
             var mails = _mailRepository.GetAll();
             if (mails == null)
                 return NotFound();
