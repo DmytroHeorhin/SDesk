@@ -3,9 +3,10 @@ using System.Web.Http;
 using SDesc.DataAccess;
 using SDesk.DataAccess;
 using SDesk.Model;
+using SDesk.Api.RouteAttributes;
 
 namespace SDesk.Api.Controllers.V1
-{
+{  
     public class MailsController : ApiController
     {
         private readonly IRepository<Mail> _mailRepository;

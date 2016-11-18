@@ -8,7 +8,6 @@ namespace SDesk.Api.RoutingConstraints
 {
     public class JiraIdConstraint : IHttpRouteConstraint
     {
-
         public bool Match
             (
             HttpRequestMessage request, 
@@ -21,7 +20,7 @@ namespace SDesk.Api.RoutingConstraints
             object value;
             values.TryGetValue(parameterName, out value);           
             var input = Convert.ToString(value);
-            var jiraIdStringRegex = new Regex("^Jira-[1-9][0-9]*", RegexOptions.IgnoreCase);
+            var jiraIdStringRegex = new Regex("^" + CommonInfoContainer.JiraIdPrefix + "[1-9][0-9]*$", RegexOptions.IgnoreCase);
             return jiraIdStringRegex.IsMatch(input);
         }
     }

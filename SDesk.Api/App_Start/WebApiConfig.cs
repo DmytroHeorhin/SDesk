@@ -17,17 +17,16 @@ namespace SDesk.Api
                 routeTemplate: "api/jiraitems/{id}",
                 defaults: new { controller = "jiraitems", action = "JiraItemString" },                                                 
                 constraints: new { id = new JiraIdConstraint() });
-
+          
             config.Routes.MapHttpRoute(
                 name: "DigitalIdConstraintBasedApi",
                 routeTemplate: "api/jiraitems/{id}",
-                defaults: new { controller = "jiraitems", action = "JiraItemInt" },
-                constraints: new { id = new DigitalIdConstraint() });
-
+                defaults: new { controller = "jiraitems", action = "JiraItemInt", id = 1 }); 
+                
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional});                                     
+                defaults: new { id = RouteParameter.Optional});                                       
         }
     }
 }
