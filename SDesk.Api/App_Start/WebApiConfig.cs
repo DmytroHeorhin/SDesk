@@ -1,6 +1,8 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Routing;
 using SDesk.Api.RoutingConstraints;
+using System.Web.Http.ExceptionHandling;
+using SDesk.Api.Infrastructure;
 
 namespace SDesk.Api
 {
@@ -13,6 +15,7 @@ namespace SDesk.Api
             config.MapHttpAttributeRoutes(constraintResolver);
 
             log4net.Config.XmlConfigurator.Configure();
+            config.Services.Replace(typeof(IExceptionHandler), new Log4NetExceptionHandler());
 
             config.Routes.MapHttpRoute(
                 name: "JiraIdConstraintBasedApi",
