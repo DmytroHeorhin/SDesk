@@ -17,8 +17,10 @@ namespace SDesk.Api.RouteAttributes
         {
             get
             {
-                var constraints = new HttpRouteValueDictionary();
-                constraints.Add("api-version", new ApiVersionConstraint(AllowedVersion));
+                var constraints = new HttpRouteValueDictionary
+                {
+                    {"api-version", new ApiVersionConstraint(AllowedVersion)}
+                };
                 return constraints;
             }
         }
