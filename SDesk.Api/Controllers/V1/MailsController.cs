@@ -4,6 +4,7 @@ using SDesc.DataAccess;
 using SDesk.DataAccess;
 using SDesk.Model;
 using System;
+using SDesk.Api.RouteAttributes;
 
 namespace SDesk.Api.Controllers.V1
 {  
@@ -17,6 +18,8 @@ namespace SDesk.Api.Controllers.V1
         }
 
         //GET /api/mails
+        [HttpGet]
+        [VersionedRoute("api/mails", 1)]
         public IHttpActionResult GetAllMails()
         {
             //throw new Exception("Test exception");
@@ -27,6 +30,8 @@ namespace SDesk.Api.Controllers.V1
         }
 
         //GET /api/mails/{id}
+        [HttpGet]
+        [VersionedRoute("api/mails/{id}", 1)]
         public IHttpActionResult GetMail(int id)
         {
             var mail = _mailRepository.Get(id);
@@ -36,6 +41,8 @@ namespace SDesk.Api.Controllers.V1
         }
 
         //PUT /api/mails/{id}
+        [HttpPut]
+        [VersionedRoute("api/mails/{id}", 1)]
         public IHttpActionResult PutMail(int id, Mail model)
         {
             if (model == null)
@@ -47,6 +54,8 @@ namespace SDesk.Api.Controllers.V1
         }
 
         //POST /api/mails
+        [HttpPost]
+        [VersionedRoute("api/mails", 1)]
         public IHttpActionResult PostMail(Mail model)
         {
             if (model == null)
@@ -57,6 +66,8 @@ namespace SDesk.Api.Controllers.V1
         }
 
         //DELETE /api/mails/{id}
+        [HttpDelete]
+        [VersionedRoute("api/mails/{id}", 1)]
         public IHttpActionResult DeleteMail(int id)
         {
             _mailRepository.Delete(id);

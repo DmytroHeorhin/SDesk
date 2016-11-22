@@ -321,6 +321,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Log4NetExceptionHandler.cs" />
+    <Compile Include="Infrastructure\VersionedApiExplorer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteAttributes\VersionedRoute.cs" />
     <Compile Include="RoutingConstraints\ApiVersionConstraint.cs" />
